@@ -123,6 +123,7 @@ title("Deuxième Axe Canonique")
 #Visualisation des Poids des Variables : on ne voit pas les vecteurs ?!
 plt.cc(ccs, d1 = 1, d2 = 2, type = "v", var.label = TRUE)
 
+plt.cc(ccs)
 
 #ne fonctionne pas !!
 # Récupérer les scores canoniques
@@ -141,3 +142,14 @@ ggplot(weights_df, aes(x = Variable, y = Poids, fill = Groupe)) +
        y = "Poids") +
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))  # Ajuste l'angle des étiquettes de l'axe x
+
+
+
+
+
+
+data(nutrimouse)
+X=as.matrix(nutrimouse$gene)
+Y=as.matrix(nutrimouse$lipid)
+res.cc=rcc(X,Y,0.1,0.2)
+plt.cc(res.cc)
